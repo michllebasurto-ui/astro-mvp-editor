@@ -1,9 +1,9 @@
 import client from './client';
-import type { Tenant, TenantCreate } from '../types';
+import type { Tenant, TenantCreate, PaginatedResponse } from '../types';
 
 export async function getTenants(): Promise<Tenant[]> {
-  const { data } = await client.get<Tenant[]>('/tenants');
-  return data;
+  const { data } = await client.get<PaginatedResponse<Tenant>>('/tenants');
+  return data.items;
 }
 
 export async function getTenant(slug: string): Promise<Tenant> {
