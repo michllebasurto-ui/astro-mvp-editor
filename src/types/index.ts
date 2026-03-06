@@ -76,6 +76,14 @@ export interface TenantCreate {
   footerLinks: NavLink[];
 }
 
+export interface PaginatedResponse<T> {
+  items: T[];
+  page: number;
+  pageSize: number;
+  totalCount: number;
+  totalPages: number;
+}
+
 export interface PageCreate {
   path: string;
   pageComponent: string;
